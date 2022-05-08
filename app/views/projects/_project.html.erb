@@ -1,0 +1,36 @@
+<div class="col-12 m-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="">
+        <div class="">
+          <span>
+            <%= project.name %>
+            "info"
+          </span>
+          <div class="badge bg-secondary">
+            залишилось <%= project.finish_at.day - DateTime.now.day%> днів
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <span>
+              Старт: <%= project.start_at.strftime("%e.%m.%Y")%>
+            </span>
+            <span>
+              Фініш: <%= project.finish_at.strftime("%e.%m.%Y")%>
+            </span>
+          </div>
+          <div class="">
+            Бюджет
+            <%=project.budget%>$
+          </div>
+          <div class="">
+            Виконано
+            <%= project.completed_tasks_count %> i <%= project.tasks_count %>
+          </div>
+          <%=link_to "Приєднатись", join_project_path(project), method: :post, class:"btn btn-warning"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

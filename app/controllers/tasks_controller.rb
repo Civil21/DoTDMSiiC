@@ -1,9 +1,51 @@
 class TasksController < InheritedResources::Base
+  before_action :authenticate_user!
+  before_action :user_in_team
+
+  def create
+    @task = Task.new(task_params)
+    task.position = topic.next_task_position
+    task.project = project
+    task.user = current_user
+    task.save
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
+  def update
+    task.update(task_params)
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
+  def delete
+    task.delete
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
 
   private
 
-    def task_params
-      params.require(:task).permit(:project_id, :user_id, :name, :description, :compldated)
-    end
+  def topic
+    @topic ||= Topic.find(task_params[:topic_id])
+  end
 
+  def task
+    @task ||= Task.find(params[:id])
+  end
+
+  def project
+    @project ||= Project.find(params[:project_id])
+  end
+
+  def user_in_team
+    redirect_back(fallback_location: root_path) unless project.in_team?(current_user)
+  end
+
+  def task_params
+    params.require(:task).permit(:name, :description, :complated, :topic_id)
+  end
 end

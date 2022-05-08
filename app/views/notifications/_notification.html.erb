@@ -1,0 +1,13 @@
+<div class="">
+  <%= notification.created_at.strftime("%e.%m.%Y")%>
+  <%= notification.notification_type%>
+  <% if ["Project", "User"].include?(notification.object_type) %>
+    <%= link_to notification.object.name, notification.object%>
+  <%else%>
+    <%= notification.object.name %>
+  <%end%>
+  <% if ["User"].include?(notification.sub_object_type) %>
+    <%= link_to notification.sub_object.name, notification.sub_object %>
+  <%else%>
+  <%end%>
+</div>

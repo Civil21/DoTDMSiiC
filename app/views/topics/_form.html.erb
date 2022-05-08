@@ -1,0 +1,4 @@
+<%= form_with model: [@project, topic], id: "#{dom_id(topic)}_form" do |f| %>
+  <%= f.text_field :name %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>

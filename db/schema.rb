@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_161807) do
+ActiveRecord::Schema.define(version: 2022_05_08_173351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,26 +41,52 @@ ActiveRecord::Schema.define(version: 2022_04_18_161807) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "object_id", null: false
+    t.string "object_type", null: false
+    t.integer "user_id", null: false
+    t.integer "notification_type", null: false
+    t.integer "sub_object_id"
+    t.string "sub_object_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "project_users", force: :cascade do |t|
-    t.integer "project_id"
-    t.integer "user_id"
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "start_at", null: false
+    t.datetime "finish_at", null: false
+    t.integer "budget", default: 0, null: false
+    t.integer "tasks_count", default: 0, null: false
+    t.integer "completed_tasks_count", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "project_id"
-    t.integer "user_id"
-    t.string "name"
-    t.string "description"
-    t.boolean "compldated"
+    t.integer "project_id", null: false
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.boolean "completed", default: false, null: false
+    t.integer "topic_id", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "project_id", null: false
+    t.integer "position", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

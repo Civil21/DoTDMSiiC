@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
+<h1><%=@project.name%></h1>
+<div class="">
+  <div class="">
+    Учасники: <%= render partial: "user", collection: @users %>
+  </div>
+  <div class="">
+    <%=@project.budget%>$
+  </div>
+</div>
+<div class="row" id=<%="#{dom_id(@project)}_list"%>>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+  <%= render @topics %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-<%= link_to 'Back', projects_path %>
+</div>
+<%= render "topics/form", topic: Topic.new %>

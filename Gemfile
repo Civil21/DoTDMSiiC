@@ -9,14 +9,16 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.5'
 gem 'sass-rails', '>= 6'
-gem 'turbolinks', '~> 5'
+gem 'turbo-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'webpacker', '~> 5.0'
 gem "devise"
 gem 'activeadmin'
+gem 'arctic_admin'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "faker"
 end
 
 group :development do
