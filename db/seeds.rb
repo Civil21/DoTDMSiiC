@@ -10,7 +10,12 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
   )
 end
 7.times do
-  user = User.create!(email: Faker::Internet.email, password: 'password', password_confirmation: 'password')
+  user = User.create!(
+    email: Faker::Internet.email,
+    password: 'password',
+    password_confirmation: 'password',
+    position: rand(0..5)
+  )
   rand(1..3).times do
     Project.all.sample.users << user
   end

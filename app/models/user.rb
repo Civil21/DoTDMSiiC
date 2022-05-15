@@ -11,6 +11,15 @@ class User < ApplicationRecord
 
   after_create :notification_all_users
 
+  enum position: {
+    developer: 0,
+    designer: 1,
+    frontend: 2,
+    backend: 3,
+    hr: 4,
+    project_menager: 5
+  }
+
   def name
     email.split('@')[0]
   end
