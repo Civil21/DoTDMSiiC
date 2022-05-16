@@ -1,6 +1,6 @@
 .btn{
     width: 100%;
-    border-radius: 0;
+    border-radius: $border-radius;
 
     &__primary{
         padding: .8rem;
@@ -13,6 +13,7 @@
             color: $color-white;
         }
     }
+
     &__auto{
         width: auto;
     }

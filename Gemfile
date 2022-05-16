@@ -15,10 +15,10 @@ gem 'webpacker', '~> 5.0'
 gem "devise"
 gem 'activeadmin'
 gem 'arctic_admin'
+gem "faker"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "faker"
 end
 
 group :development do
