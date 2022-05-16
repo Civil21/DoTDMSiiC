@@ -1,0 +1,18 @@
+.navbar {
+  background-color: $color-white; 
+}
+
+.nav-item {
+  .nav-link {
+    font-size: 1.125rem;
+    color: $color-warning-base;
+  }
+  &__margin{
+    margin-right: 3rem;
+  }
+}
+.bottom_of_navbar  {
+
+  height: 50px;
+  background-color: #f5f5f5;
+}
