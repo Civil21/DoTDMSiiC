@@ -24,6 +24,11 @@
           <%= image_tag "/user.svg", height: 60, alt: current_user.email, title: current_user.email %>
           <%end%>
         </li>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, class:"nav-link ms-lg-3", method: :delete do%>
+            Вихід
+          <%end%>
+        </li>
       </ul>
     </div>
   </div>

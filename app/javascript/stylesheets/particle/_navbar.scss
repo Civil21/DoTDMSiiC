@@ -6,13 +6,15 @@
   .nav-link {
     font-size: 1.125rem;
     color: $color-primary-dark;
+    &:hover{
+      color: $color-primary-base;
+    }
   }
   &__margin{
     margin-right: 3rem;
   }
 }
 .bottom_of_navbar  {
-
   min-height: 50px;
   background-color: $color-neutral-bg;
 }
