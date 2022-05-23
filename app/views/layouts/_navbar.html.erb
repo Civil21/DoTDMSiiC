@@ -1,41 +1,52 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg ">
+  <div class="container">
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon "></span>
     </button>
-    <%= link_to root_path, class:"navbar-brand"  do %>
-      ЛОГО
-    <%end%>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div>
+      <%= link_to root_path, class:"navbar-brand"  do %>
+      <%= image_tag "/logo.svg",  height: 60 %>
+      <%end%>
+    </div>
+    <div class="collapse navbar-collapse"
+      id="navbarCollapse">
+      <ul
+        class="navbar-nav ms-auto align-items-center mb-lg-0">
         <li class="nav-item">
-          <%= link_to root_path, class:"nav-link"  do %>
-            ГОЛОВНА
+          <%= link_to projects_my_path ,class:"nav-link me-3"  do %>
+          Мої проекти
           <%end%>
         </li>
         <li class="nav-item">
-          <%= link_to projects_path, class:"nav-link"  do %>
-            ПРОЕКТИ
-          <%end%>
-        </li>
-        <li class="nav-item">
-          <%= link_to users_path, class:"nav-link"  do %>
-            Персонал
-          <%end%>
-        </li>
-      </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to projects_my_path ,class:"nav-link"  do %>
-            Мої проекти
-          <%end%>
-        </li>
-        <li class="nav-item">
-          <%= link_to my_path, class:"nav-link me-3 #{'nav-link__active' if current_page?(my_path)}", title: "Профіль"  do %>
-            <%= image_tag "https://v7par.com/image/new-design/user.svg", wigth: 32, height: 32, alt: current_user.email, title: current_user.email %>
+          <%= link_to my_path, class:"nav-link #{'nav-link__active' if current_page?(my_path)}", title: "Профіль"  do %>
+          <%= image_tag "/user.svg", height: 60, alt: current_user.email, title: current_user.email %>
           <%end%>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="bottom_of_navbar d-flex align-items-center ">
+  <div class="container">
+    <ul
+      class="navbar-nav flex-sm-row">
+      <li class="nav-item nav-item__margin ">
+        <%= link_to root_path, class:"nav-link"  do %>
+        Головна
+        <%end%>
+      </li>
+      <li class="nav-item nav-item__margin ">
+        <%= link_to projects_path, class:"nav-link"  do %>
+        Проекти
+        <%end%>
+      </li>
+      <li class="nav-item nav-item__margin ">
+        <%= link_to root_path, class:"nav-link"  do %>
+        Персонал
+        <%end%>
+      </li>
+    </ul>
+  </div>
+</div>
