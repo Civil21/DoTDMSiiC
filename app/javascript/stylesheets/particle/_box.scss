@@ -29,5 +29,60 @@
         height: 380px;
         cursor: pointer;
     }
+
+    &__title{
+        font-size:30px;
+        font-weight: 800;
+    }
+
+    &__badge{
+        height: 30px;
+        width: 190px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: #FFFFFF;
+        
+    }
+
+    &__small_text{
+        font-size:10px;
+        font-weight:400;
+    }
+
+    &__block{
+        display:block;
+    }
+
+    &__infotxt{
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 59px;
+        padding:auto;
+        text-align: center;
+    }
+
+    &__infotitle{
+       font-family: 'Montserrat';
+       font-style: normal;
+       font-weight: 500;
+       font-size: 24px;
+       line-height: 29px;
+       text-align: center;
+
+       color: #C4C4C4;
+       padding-left: 50px;
+ 
+    }
+
+   
 }
 
