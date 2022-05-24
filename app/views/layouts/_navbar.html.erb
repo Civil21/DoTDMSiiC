@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg navbar-light ">
   <div class="container">
-    <button class="navbar-toggler" type="button"
+    <button class="navbar-toggler shadow-none" type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon "></span>
+      <span class="navbar-toggler-icon"><i
+          class="fa fa-bars" aria-hidden="true"
+          style="color:#e6e6ff"></i></span>
     </button>
     <div>
       <%= link_to root_path, class:"navbar-brand"  do %>
@@ -15,19 +17,27 @@
       <ul
         class="navbar-nav ms-auto align-items-center mb-lg-0">
         <li class="nav-item">
-          <%= link_to projects_my_path ,class:"nav-link me-3"  do %>
+          <%= link_to projects_my_path ,class:"nav-link  me-3"  do %>
           Мої проекти
           <%end%>
         </li>
         <li class="nav-item">
-          <%= link_to my_path, class:"nav-link #{'nav-link__active' if current_page?(my_path)}", title: "Профіль"  do %>
+          <%= link_to my_path, id:"user_img", class:" nav-link #{'nav-link__active' if current_page?(my_path)}", title: "Профіль"  do %>
           <%= image_tag "/user.svg", height: 60, alt: current_user.email, title: current_user.email %>
           <%end%>
-        </li>
-        <li class="nav-item">
-          <%= link_to destroy_user_session_path, class:"nav-link ms-lg-3", method: :delete do%>
-            Вихід
-          <%end%>
+          <div class="navcard dropdown-menu p-0 d-flex align-items-start flex-column" id="drop">
+            <div class="dropdown px-4 pt-4">
+              <h5 class="colored">John Smith</h5>
+              <p><a href="#">Action <span>24</span></a></p>
+              <p><a href="#">Another action</a></p>
+              <p><a href="#">Something else here</a></p>
+            </div>
+            <div class="exit mt-auto p-0 m-0 w-100 text-center">
+              <%= link_to destroy_user_session_path, class:"colored nav-link", method: :delete do%>
+              Вихід
+              <%end%>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -35,8 +45,7 @@
 </nav>
 <div class="bottom_of_navbar d-flex align-items-center ">
   <div class="container">
-    <ul
-      class="navbar-nav flex-sm-row">
+    <ul class="navbar-nav flex-sm-row">
       <li class="nav-item nav-item__margin ">
         <%= link_to root_path, class:"nav-link"  do %>
         Головна
