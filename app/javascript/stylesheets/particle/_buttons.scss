@@ -17,4 +17,22 @@
     &__auto{
         width: auto;
     }
+
+    &__card{
+        padding: .4rem;
+        width: 250px;
+        height: 50px;
+        text-align: center;
+        font-weight: 500;
+        border-radius: $border-radius;
+        text-transform: uppercase;
+        color: $color-white;
+        background-color: $color-primary-dark;
+        transition: all .5s ease-in;
+        padding-top: 1.1%;
+        &:hover {
+            background-color: $color-primary-base;
+            color: $color-white;
+        }
+    }
 }
