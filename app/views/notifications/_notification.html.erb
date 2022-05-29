@@ -1,4 +1,4 @@
-<div class="">
+<div class="Box Box__notification <%='Box__yellow' if ["User"].include?(notification.object_type)%> <%='Box__red' if ["Project"].include?(notification.object_type)%>">
   <%= notification.created_at.strftime("%e.%m.%Y")%>
   <%= notification.notification_type%>
   <% if ["Project", "User"].include?(notification.object_type) %>

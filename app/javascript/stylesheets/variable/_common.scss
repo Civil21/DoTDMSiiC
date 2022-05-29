@@ -86,3 +86,32 @@ tbody{
     }
   }
 }
+
+.my-project-title{
+  color: $color-primary-dark;
+  text-align: center;
+
+}
+
+.bage{
+  background: #C4C4C4;
+  max-width: 190px;
+  position: absolute;
+  padding: 5px 12px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius:5px;
+
+  &__bottom{
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 20px;
+  }
+
+  &__top{
+   top: 30px;
+   right: 30px;
+
+  }
+}

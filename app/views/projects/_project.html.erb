@@ -1,16 +1,15 @@
 <div class="col-12 m-3">
-  <div class="card">
-    <div class="card-body">
+  <div class="Box Box__padding">
       <div class="d-flex row">
-        <div class="d-flex justify-content-between mb-4 mt-4 ">
+        <div class="mb-4">
           <span class="Box__title">
             <%= project.name %>
-            <%= link_to  do %>
-              <%= image_tag "info-circle.svg", width:24, height:24 %>
-            <% end %>
+              
+                <%= image_tag "info-circle.svg", width:24, height:24 %>
+              
           </span>
-          <div class="badge bg-secondary Box__badge">
-            залишилось <%= project.finish_at.day - DateTime.now.day%> днів
+          <div class="badge bage bage__top">
+            Залишилось <%= project.finish_at.day - DateTime.now.day%> днів
           </div>
         </div>
         <div class="d-flex justify-content-between align-items-end">
@@ -33,6 +32,5 @@
           <%=link_to "Приєднатись", join_project_path(project), method: :post, class:"btn__card"%>
         </div>
       </div>
-    </div>
   </div>
 </div>
