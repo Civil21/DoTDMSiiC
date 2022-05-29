@@ -21,18 +21,18 @@
           Мої проекти
           <%end%>
         </li>
-        <li class="nav-item">
-          <%= link_to my_path, id:"user_img", class:" nav-link #{'nav-link__active' if current_page?(my_path)}", title: "Профіль"  do %>
-          <%= image_tag "/user.svg", height: 60, alt: current_user.email, title: current_user.email %>
-          <%end%>
-          <div class="navcard dropdown-menu p-0 d-flex align-items-start flex-column" id="drop">
-            <div class="dropdown px-4 pt-4">
-              <h5 class="colored">John Smith</h5>
-              <p><a href="#">Action <span>24</span></a></p>
-              <p><a href="#">Another action</a></p>
-              <p><a href="#">Something else here</a></p>
+        <li class="nav-item dropdown">
+          <%= image_tag "/user.svg",class:"cursor_pointer" ,id:"dropdownMenuButton1",data:{bs_toggle:"dropdown"}, height: 60, alt: current_user.email, title: current_user.email %>
+          <div class="navcard dropdown-menu p-0 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <div class="info px-4 pt-4">
+              <h5 class="colored"><%= current_user.name%></h5>
+              <p>Вік: <span>24</span></p>
+              <p>Працює від: <span>12.03.2020</span></p>
+              <p>Посада: <span>Директор</span></p>
+              <p>Виконані проекти: <span>10</span></p>
+              <p class="mb-4">Всього проектів: <span>25</span></p>
             </div>
-            <div class="exit mt-auto p-0 m-0 w-100 text-center">
+            <div class="exit mt-auto p-0 w-100 text-center">
               <%= link_to destroy_user_session_path, class:"colored nav-link", method: :delete do%>
               Вихід
               <%end%>

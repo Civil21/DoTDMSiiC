@@ -2,9 +2,11 @@
   background-color: $color-white;
   color: $color-primary-dark;
 }
+
 .colored {
   color: $color-primary-dark;
 }
+
 .nav-item {
   .nav-link {
     font-size: 1.125rem;
@@ -17,13 +19,16 @@
     margin-right: 3rem;
   }
 }
+
 .bottom_of_navbar {
   min-height: 50px;
   background-color: $color-neutral-bg;
 }
+
 .notifications {
   display: block;
 }
+
 .hide_block {
   width: 0rem;
   height: 0rem;
@@ -32,24 +37,29 @@
 }
 
 .navcard {
-  min-width: 18.75rem;
-  min-height: 15.625rem;
-  position: absolute;
-  right: 2.5rem;
-  display: block;
+  width: 18.75rem;
+  min-height: 10rem;
   font-size: 0.875rem;
   border: none;
-  .dropdown {
-    a {
+  .info {
+    h5 {
+      width: 20px;
+    }
+    p {
+      margin-bottom: 8px;
       color: $color-black;
       span {
         font-weight: 700;
       }
     }
   }
-  .exit{
-    min-height: 3.125rem;
+  .exit {
+    height: 3.125rem;
     background-color: $color-neutral-bg;
     color: $color-primary-dark;
   }
+}
+
+.cursor_pointer {
+  cursor: pointer;
 }
