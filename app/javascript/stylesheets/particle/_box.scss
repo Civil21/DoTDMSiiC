@@ -113,5 +113,23 @@
         background-color: $color-warning-base;
     }
 
+    &__usercard{
+        width: 300px;
+        min-height: 250px;
+    }
+
+    .info_list > p {
+        margin-bottom: 8px;
+    }
+
+    &__maintitle{
+        font-size: 3rem;
+        font-weight: $font-weight-bold;
+        color: $color-primary-dark;
+    }
+
+    &__margins{
+        margin: 50px 0px 30px 0px;
+    }
 }
 

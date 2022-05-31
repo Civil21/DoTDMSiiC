@@ -21,6 +21,15 @@ a{
   }
 }
 
+p{
+  font-size: $font-size-mobile;
+}
+
+span{
+  font-size: $font-size-base;
+  font-weight: 700;
+}
+
 .Registration_page{
   height: 100vh;
   overflow: hidden;
