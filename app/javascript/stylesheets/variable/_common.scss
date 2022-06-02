@@ -21,6 +21,15 @@ a{
   }
 }
 
+p{
+  font-size: $font-size-mobile;
+}
+
+span{
+  font-size: $font-size-base;
+  font-weight: 700;
+}
+
 .Registration_page{
   height: 100vh;
   overflow: hidden;
@@ -84,5 +93,34 @@ tbody{
       left: 0;
       background-color: $background;
     }
+  }
+}
+
+.my-project-title{
+  color: $color-primary-dark;
+  text-align: center;
+
+}
+
+.bage{
+  background: #C4C4C4;
+  max-width: 190px;
+  position: absolute;
+  padding: 5px 12px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius:5px;
+
+  &__bottom{
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 20px;
+  }
+
+  &__top{
+   top: 30px;
+   right: 30px;
+
   }
 }
