@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg navbar-light ">
   <div class="container">
-    <button class="navbar-toggler" type="button"
+    <button class="navbar-toggler shadow-none" type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon "></span>
+      <span class="navbar-toggler-icon"><i
+          class="fa fa-bars" aria-hidden="true"
+          style="color:#e6e6ff"></i></span>
     </button>
     <div>
       <%= link_to root_path, class:"navbar-brand"  do %>
@@ -15,14 +17,27 @@
       <ul
         class="navbar-nav ms-auto align-items-center mb-lg-0">
         <li class="nav-item">
-          <%= link_to projects_my_path ,class:"nav-link me-3"  do %>
+          <%= link_to projects_my_path ,class:"nav-link  me-3"  do %>
           Мої проекти
           <%end%>
         </li>
-        <li class="nav-item">
-          <%= link_to my_path, class:"nav-link #{'nav-link__active' if current_page?(my_path)}", title: "Профіль"  do %>
-          <%= image_tag "/user.svg", height: 60, alt: current_user.email, title: current_user.email %>
-          <%end%>
+        <li class="nav-item dropdown">
+          <%= image_tag "/user.svg",class:"cursor_pointer" ,id:"dropdownMenuButton1",data:{bs_toggle:"dropdown"}, height: 60, alt: current_user.email, title: current_user.email %>
+          <div class="navcard dropdown-menu p-0 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <div class="info px-4 pt-4">
+              <h5 class="colored"><%= current_user.name%></h5>
+              <p>Вік: <span>24</span></p>
+              <p>Працює від: <span>12.03.2020</span></p>
+              <p>Посада: <span>Директор</span></p>
+              <p>Виконані проекти: <span>10</span></p>
+              <p class="mb-4">Всього проектів: <span>25</span></p>
+            </div>
+            <div class="exit mt-auto p-0 w-100 text-center">
+              <%= link_to destroy_user_session_path, class:"colored nav-link", method: :delete do%>
+              Вихід
+              <%end%>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -30,8 +45,7 @@
 </nav>
 <div class="bottom_of_navbar d-flex align-items-center ">
   <div class="container">
-    <ul
-      class="navbar-nav flex-sm-row">
+    <ul class="navbar-nav flex-sm-row">
       <li class="nav-item nav-item__margin ">
         <%= link_to root_path, class:"nav-link"  do %>
         Головна
