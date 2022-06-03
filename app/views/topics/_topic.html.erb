@@ -1,7 +1,7 @@
-<div class="col-12 col-md-2">
-  <h3><%= topic.name %></h3>
-  <div class="row" id=<%="#{dom_id(topic)}_list"%>>
-    <%= render topic.tasks %>
+<li class="splide__slide me-3 Box__grey_box mb-5">
+  <h3 class="Box__topic"><%= topic.name %></h3>
+  <div class="row Box Box__shadow p-1 m-0 mb-2" id=<%="#{dom_id(topic)}_list"%>>
+    <%= render topic.tasks %> 
   </div>
   <%= render "tasks/form", task: topic.tasks.build %>
-</div>
+</li>

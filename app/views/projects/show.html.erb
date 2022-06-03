@@ -1,15 +1,23 @@
-<h1><%=@project.name%></h1>
-<div class="">
-  <div class="">
-    Учасники: <%= render partial: "user", collection: @users %>
+<h1 class="Box__maintitle mt-5 mb-2">
+  <%=@project.name%><%= image_tag "info-circle.svg", class:"ms-2", width:24, height:24 %>
+</h1>
+<div class="d-flex justify-content-between">
+  <div class="Box__grey_text d-flex align-items-center">
+    Учасники:
+    <%= render partial: "user", collection: @users %>
   </div>
-  <div class="">
+  <div class="Box__infotxt Box__colored">
     <%=@project.budget%>$
   </div>
 </div>
-<div class="row" id=<%="#{dom_id(@project)}_list"%>>
+<div class="splide users_splide row Box mt-4 mx-0 p-5"
+  role="group">
 
-  <%= render @topics %>
+  <div class="splide__track">
+    <ul class="splide__list">
+      <%= render @topics %>
+    </ul>
+  </div>
 
 </div>
 <%= render "topics/form", topic: Topic.new %>
