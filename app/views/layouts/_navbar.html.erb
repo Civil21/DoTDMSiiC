@@ -26,11 +26,11 @@
           <div class="navcard dropdown-menu p-0 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
             <div class="info px-4 pt-4">
               <h5 class="colored"><%= current_user.name%></h5>
-              <p>Вік: <span>24</span></p>
-              <p>Працює від: <span>12.03.2020</span></p>
-              <p>Посада: <span>Директор</span></p>
-              <p>Виконані проекти: <span>10</span></p>
-              <p class="mb-4">Всього проектів: <span>25</span></p>
+                <p>Вік: <span>24</span></p>
+                <p>Працює від: <span><%= current_user.created_at.strftime("%d.%m.%Y")%></span></p>
+                <p>Посада: <span><%= current_user.position%></span></p>
+                <p>Виконані проекти: <span>0</span></p>
+                <p class="mb-4">Всього проектів: <span><%= current_user.projects.count%></span></p>
             </div>
             <div class="exit mt-auto p-0 w-100 text-center">
               <%= link_to destroy_user_session_path, class:"colored nav-link", method: :delete do%>
