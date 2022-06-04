@@ -1,13 +1,23 @@
-<div class="Box Box__notification <%='Box__yellow' if ["User"].include?(notification.object_type)%> <%='Box__red' if ["Project"].include?(notification.object_type)%>">
-  <%= notification.created_at.strftime("%e.%m.%Y")%>
-  <%= notification.notification_type%>
+<div class="Box Box__notification row <%='Box__yellow' if ["User"].include?(notification.object_type)%> <%='Box__red' if ["Project"].include?(notification.object_type)%>">
+  <div class="col-2">
+    <%= notification.created_at.strftime("%e.%m.%Y")%>
+  </div>
+  <div class="col-2">
+    <%= notification.notification_type%>
+  </div>
   <% if ["Project", "User"].include?(notification.object_type) %>
-    <%= link_to notification.object.name, notification.object%>
+    <div class="col-4">
+      <%= link_to notification.object.name, notification.object%>
+    </div>
   <%else%>
-    <%= notification.object.name %>
+    <div class="col-4">
+      <%= notification.object.name %>
+    </div>
   <%end%>
   <% if ["User"].include?(notification.sub_object_type) %>
-    <%= link_to notification.sub_object.name, notification.sub_object %>
+    <div class="col-4">
+      <%= link_to notification.sub_object.name, notification.sub_object %>
+    </div>
   <%else%>
   <%end%>
 </div>

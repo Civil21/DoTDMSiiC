@@ -1,8 +1,8 @@
-@mixin make-heading($desktop, $tablet, $mobile, $line-height) {
+@mixin make-heading($desktop, $tablet, $mobile, $line-height, $font-weight: 700) {
   margin-top: 0;
   margin-bottom: 1rem;
   font-family: $font-primary;
-  font-weight: 700;
+  font-weight: $font-weight;
   font-size: #{$mobile};
   line-height: #{$line-height};
 	@media (min-width: $breakpoint-md) {
@@ -20,8 +20,7 @@ h2, .h2 {
   @include make-heading($font-size-xxl, $font-size-xl, $font-size-m, $line-height-base);
 }
 h3, .h3 {
-  @include make-heading($font-size-xl, $font-size-l, $font-size-sm, $line-height-sm);
-  font-weight: $font-weight-light;
+  @include make-heading($font-size-xl, $font-size-l, $font-size-sm, $line-height-sm, $font-weight-light);
 }
 h4, .h4 {
   @include make-heading($font-size-l, $font-size-m, $font-size-xs, $line-height-sm);

@@ -99,14 +99,13 @@ tbody{
 .my-project-title{
   color: $color-primary-dark;
   text-align: center;
-
 }
 
 .bage{
-  background: #C4C4C4;
+  background: $color-neutral-text;
   max-width: 190px;
   position: absolute;
-  padding: 5px 12px;
+  padding: 7px 12px;
   font-weight: 500;
   font-size: 1rem;
   border-radius:5px;
@@ -123,4 +122,8 @@ tbody{
    right: 30px;
 
   }
+}
+
+.pointer{
+  cursor: pointer;
 }

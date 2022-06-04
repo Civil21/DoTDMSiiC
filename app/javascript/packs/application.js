@@ -22,4 +22,26 @@ document.addEventListener('turbo:load', () => {
             } ).mount();
         }   
     }
-  } );
+    //modal
+    const projectModal = document.getElementById('projectsModal')
+    if(!projectModal) return
+    projectModal.addEventListener('show.bs.modal', function(event) {
+      //trigger
+      const btn_project = event.relatedTarget
+      //parms
+      const title = btn_project.getAttribute('data-bs-modaltitle')
+      const desc = btn_project.getAttribute('data-bs-modaldesc')
+      const ptoject = btn_project.getAttribute('data-bs-project')
+      //elements
+      const modalTitle = projectModal.querySelector('.modal_title')
+      const modalBodyText = projectModal.querySelector('.modal_desc')
+      modalTitle.textContent = title
+      modalBodyText.textContent = desc
+      if (projectModal.querySelector('.modal_btn')){
+        const modalBtn = projectModal.querySelector('.modal_btn')
+        modalBtn.setAttribute('href', ptoject)
+      }
+    })
+} );
+
+  
