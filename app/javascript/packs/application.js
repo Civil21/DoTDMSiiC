@@ -11,6 +11,9 @@ import "bootstrap"
 import "../stylesheets/application"
 import { auto } from "@popperjs/core"
 
+import "trix"
+import "@rails/actiontext"
+
 document.addEventListener('turbo:load', () => {
   if (document.querySelector('.splide')){
       let spliders = document.querySelectorAll('.splide');
@@ -40,7 +43,7 @@ document.addEventListener('turbo:load', () => {
       const modalBodyText = topicModal.querySelector('.modal_desc')
       modalTitle.textContent = title
       modalTopic.textContent = topic
-      modalBodyText.textContent = desc
+      modalBodyText.innerHTML = desc
     });
 
 
@@ -56,7 +59,7 @@ document.addEventListener('turbo:load', () => {
       const modalTitle = projectModal.querySelector('.modal_title')
       const modalBodyText = projectModal.querySelector('.modal_desc')
       modalTitle.textContent = title
-      modalBodyText.textContent = desc
+      modalBodyText.innerHTML = desc
       if (projectModal.querySelector('.modal_btn')){
         const modalBtn = projectModal.querySelector('.modal_btn')
         modalBtn.setAttribute('href', ptoject)

@@ -17,7 +17,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal_body">
-        <%= render "tasks/form", task: topic.tasks.build %>
+        <%= render "tasks/form", task: topic.tasks.build, topic: topic %>
       </div>
     </div>
   </div>
