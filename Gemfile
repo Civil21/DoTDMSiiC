@@ -16,6 +16,8 @@ gem "devise"
 gem 'activeadmin'
 gem 'arctic_admin'
 gem "faker"
+gem 'activeadmin_quill_editor'
+gem 'sassc'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
