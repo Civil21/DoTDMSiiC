@@ -2,5 +2,5 @@
   <%= render 'form', task: @topic.tasks.build %>
 <% end %>
 <%= turbo_stream.append "#{dom_id(@topic)}_list" do %>
-  <%= render @task %>
+  <%= render @task, topic: @topic %>
 <% end %>

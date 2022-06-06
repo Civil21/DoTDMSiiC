@@ -53,4 +53,13 @@
             font-weight: $font-weight-title;
         } 
     }
+    &__text{
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        &:focus{
+            box-shadow: none;
+            outline: none;
+        }
+    }
 }

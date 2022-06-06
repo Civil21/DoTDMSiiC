@@ -18,7 +18,10 @@ class Project < ApplicationRecord
   private
 
   def create_topic
-    topics.create(name: "Default topic")
+    topics.create(name: "Задачі", position: 0)
+    topics.create(name: "Взято до виконання", position: 1)
+    topics.create(name: "На перевірці", position: 2)
+    topics.create(name: "Виконано", position: 3)
   end
 
   def notification_all_users

@@ -4,11 +4,11 @@ class ProjectsController < InheritedResources::Base
   before_action :user_not_in_team, only: :join
 
   def index
-    @projects = Project.where.not(id: current_user.projects.ids)
+    @projects = Project.where.not(id: current_user.projects.ids).order(finish_at: :asc) 
   end
 
   def show
-    @users = project.users
+    @users = project.users 
     @topics = project.topics
   end
 

@@ -12,22 +12,39 @@ import "../stylesheets/application"
 import { auto } from "@popperjs/core"
 
 document.addEventListener('turbo:load', () => {
-    if (document.querySelector('.splide')){
-        let spliders = document.querySelectorAll('.splide');
-        for(let i = 0; i< spliders.length; i++){
-            new Splide( spliders[i],{
-                autowidth: true, 
-                arrows: false,
-                pagination: false
-            } ).mount();
-        }   
-    }
-    //modal
-    const projectModal = document.getElementById('projectsModal')
-    const topicModal = document.getElementById('topicModal')
+  if (document.querySelector('.splide')){
+      let spliders = document.querySelectorAll('.splide');
+      for(let i = 0; i< spliders.length; i++){
+          new Splide( spliders[i],{
+              autowidth: true, 
+              arrows: false,
+              pagination: false
+          } ).mount();
+      }   
+  }
+  //modal
+  const projectModal = document.querySelector('#projectsModal')
+  const topicModal = document.querySelector('#topicModal')
 
-    if(!projectModal || !topicModal) return
+  if(document.querySelector('#topicModal'))
+    topicModal.addEventListener('show.bs.modal', function(event) {
+      //trigger
+      const btn_topic = event.relatedTarget
+      //parms
+      const title = btn_topic.getAttribute('data-bs-taskTitle')
+      const topic = btn_topic.getAttribute('data-bs-taskTopic')
+      const desc = btn_topic.getAttribute('data-bs-taskDesc')
+      //elements
+      const modalTitle = topicModal.querySelector('.modal_title')
+      const modalTopic = topicModal.querySelector('.modal_topic')
+      const modalBodyText = topicModal.querySelector('.modal_desc')
+      modalTitle.textContent = title
+      modalTopic.textContent = topic
+      modalBodyText.textContent = desc
+    });
 
+
+  if(document.querySelector('#projectsModal')) 
     projectModal.addEventListener('show.bs.modal', function(event) {
       //trigger
       const btn_project = event.relatedTarget
@@ -45,11 +62,7 @@ document.addEventListener('turbo:load', () => {
         modalBtn.setAttribute('href', ptoject)
       }
     });
-
-    topicModal.addEventListener('show.bs.modal', function(event) {
-      
-
-    });
-} );
+    
+});
 
   

@@ -5,7 +5,7 @@ class MyController < ApplicationController
   def show; end
 
   def projects
-    @projects = @user.projects
+    @projects = @user.projects.order(finish_at: :asc) 
   end
 
   private

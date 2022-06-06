@@ -10,17 +10,10 @@
     <%=@project.budget%>$
   </div>
 </div>
-<div class="splide users_splide row Box mt-4 mx-0 p-5"
-  role="group">
-
-  <div class="splide__track">
-    <ul class="splide__list">
-      <%= render @topics %>
-    </ul>
-  </div>
-
+<div class="row Box Box__hs mt-4 mx-0 p-5" role="group">
+    <%= render @topics %>
 </div>
-<%= render "topics/form", topic: Topic.new %>
+<%#= render "topics/form", topic: Topic.new %>
 
 <!-- Modal -->
 <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
@@ -37,42 +30,43 @@
   </div>
 </div>
 
-<!-- Modal for topic-->
-<div class="modal " id="topicModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-    <div class="modal_content modal_content__padding">
-      <div class="modal_header mb-3">
-        <div>
-          <h5 class="my-0 modal_title" id="projectModalLabel">Зробити щось і тут і там</h5>
-          <p>у списку: <span class="modal_content__title mt-2">Завдання test</span></p>
-        </div>
-        <button type="button" class="btn-close mb-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal_body">
-        <div class="row">
-          <div class="col-8">
-            <p class="modal_content__title mb-1" >Учасники</p>
-            <div class="modal_content__persons">
-              <%= render partial: "user", collection: @users  %>
-            </div>
-            <div>
-              <h5 class="modal_content__title mt-4 mb-2">Опис</h5>
-              <p>Some information for testing modal window Lorem ipsum dolor sit amet, est nisl postulant ea, affert recteque in has. Ut possit legendos eum, ius erat audire legimus ei, te quis option meliore has. Fabulas graecis platonem ius at, deleniti temporibus sit te. Eu est elitr scriptorem. Solet dicunt admodum no ius. Est quem dolor id, ei porro dolore eos.
-              affert recteque in has. Ut possit legendos eum, ius erat audire legimus ei, te quis option meliore has. Fabulas graecis platonem ius at, deleniti temporibus sit te. Eu est elitr scriptorem. Solet dicunt admodum no ius. Est quem dolor id, ei porro dolore eos.
-              affert recteque in has. Ut possit legendos eum, ius erat audire legimus ei, te quis option meliore has. Fabulas graecis platonem ius at, deleniti temporibus sit te. Eu est elitr scriptorem. Solet dicunt admodum no ius. Est quem dolor id, ei porro dolore eos.
-              </p>
-              <h5 class="modal_content__title mt-4 mb-2">Вкладення</h5>
-            </div> 
+  <!-- Modal for topic-->
+  <div class="modal md-effect-11" id="topicModal" tabindex="-1" aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal_content modal_content__padding">
+        <div class="modal_header mb-0">
+          <div>
+            <h5 class="my-0 modal_title">Task name</h5>
+            <p class="mt-1">у списку: <span class="modal_topic">Topic name</span></p>
           </div>
-          <div class="col-4">
-            <h5 class="modal_content__title">Дії</h5>
-            <a type="button" class="btn btn__mark">Приєднатися</a>
-            <a type="button" class="btn btn__mark">Позначити: <span>В процесі</span></a>
-            <a type="button" class="btn btn__mark">Позначити: <span>На перевірці</span></a>
-            <a type="button" class="btn btn__mark">Позначити: <span>Виконано</span></a>
+          <button type="button" class="btn-close mb-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal_body">
+          <div class="row">
+            <div class="col-8">
+              <div class="mb-3">
+                <p class="modal_content__title mb-1" >Учасники</p>
+                <div class="modal_content__persons ">
+                  <%= render partial: "user", collection: @users  %>
+                </div>
+              </div>
+              <div class="mb-3">
+                <h5 class="modal_content__title mb-2">Опис</h5>
+                <p class="modal_desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptatibus, ex voluptatum labore architecto in error provident eos ut corrupti illum culpa, odit ducimus, eaque aliquid pariatur qui officiis harum!
+                </p>
+              </div> 
+            </div>
+            <div class="col-4">
+              <h5 class="modal_content__title">Дії</h5>
+              <a type="button" class="btn btn__mark"><span>Приєднатися</span></a>
+              <a type="button" class="btn btn__mark">Перемістити до: <span>В процесі</span></a>
+              <a type="button" class="btn btn__mark">Перемістити до: <span>На перевірці</span></a>
+              <a type="button" class="btn btn__mark">Перемістити до: <span>Виконано</span></a>
+              <a type="button" class="btn btn__mark"><span>Видалити</span></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
