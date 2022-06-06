@@ -24,7 +24,10 @@ document.addEventListener('turbo:load', () => {
     }
     //modal
     const projectModal = document.getElementById('projectsModal')
-    if(!projectModal) return
+    const topicModal = document.getElementById('topicModal')
+
+    if(!projectModal || !topicModal) return
+
     projectModal.addEventListener('show.bs.modal', function(event) {
       //trigger
       const btn_project = event.relatedTarget
@@ -41,7 +44,12 @@ document.addEventListener('turbo:load', () => {
         const modalBtn = projectModal.querySelector('.modal_btn')
         modalBtn.setAttribute('href', ptoject)
       }
-    })
+    });
+
+    topicModal.addEventListener('show.bs.modal', function(event) {
+      
+
+    });
 } );
 
   

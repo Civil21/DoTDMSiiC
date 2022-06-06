@@ -22,7 +22,7 @@
         width: 250px;
         padding: 15px 40px 11px;
         text-align: center;
-        font-weight: 500;
+        font-weight: $font-weight-middle;
         border-radius: $border-radius;
         text-transform: uppercase;
         color: $color-white;
@@ -32,5 +32,25 @@
             background-color: $color-primary-base;
             color: $color-white;
         }
+    }
+
+    &__mark{
+        // width: 200px;
+        padding: 5px;
+        margin-bottom: 5px;
+        font-size: .75rem;
+        font-weight: $font-weight-middle;
+        color: $color-white;
+        background-color: $color-neutral-text; 
+        border-radius: 0;
+        transition: all .5s ease-in;
+        &:hover{
+            background-color: $color-neutral-line;
+            color: $color-white;
+        }
+        span{
+            font-size: .75rem;
+            font-weight: $font-weight-title;
+        } 
     }
 }
