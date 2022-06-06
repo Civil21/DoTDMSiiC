@@ -103,7 +103,6 @@ tbody{
 
 .bage{
   background: $color-neutral-text;
-  max-width: 190px;
   position: absolute;
   padding: 7px 12px;
   font-weight: 500;
@@ -111,8 +110,6 @@ tbody{
   border-radius:5px;
 
   &__bottom{
-    left: 0;
-    right: 0;
     margin: auto;
     bottom: 20px;
   }
@@ -126,4 +123,8 @@ tbody{
 
 .pointer{
   cursor: pointer;
+}
+
+.disable{
+  pointer-events: none;
 }
