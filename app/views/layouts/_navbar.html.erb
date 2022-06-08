@@ -29,7 +29,7 @@
                 <p>Вік: <span>24</span></p>
                 <p>Працює від: <span><%= current_user.created_at.strftime("%d.%m.%Y")%></span></p>
                 <p>Посада: <span><%= current_user.position%></span></p>
-                <p>Виконані проекти: <span>0</span></p>
+                <p>Виконані проекти: <span><%= current_user.projects.finished.count%></span></p>
                 <p class="mb-4">Всього проектів: <span><%= current_user.projects.count%></span></p>
             </div>
             <div class="exit mt-auto p-0 w-100 text-center">

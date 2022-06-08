@@ -1,6 +1,9 @@
 <h1 class="text-center Box__maintitle my-5">Проекти</h1>
 <div class="">
-  <%= render @projects %>
+    <%= render @projects %>
+    <% if @projects.size.zero?%>
+    <h2 class="text-center">Нема доступних проектів</h2>
+  <%end %>
 </div>
 
 <!-- Modal -->

@@ -4,32 +4,31 @@ import "channels"
 import "@hotwired/turbo-rails"
 
 Rails.start()
-
 ActiveStorage.start()
 
 import "bootstrap"
 import "../stylesheets/application"
-import { auto } from "@popperjs/core"
 
 import "trix"
 import "@rails/actiontext"
 
 document.addEventListener('turbo:load', () => {
-  if (document.querySelector('.splide')){
-      let spliders = document.querySelectorAll('.splide');
-      for(let i = 0; i< spliders.length; i++){
-          new Splide( spliders[i],{
-              autowidth: true, 
-              arrows: false,
-              pagination: false
-          } ).mount();
-      }   
+  if (document.querySelector('.splide')) {
+    let spliders = document.querySelectorAll('.splide');
+    for (let i = 0; i < spliders.length; i++) {
+      new Splide(spliders[i], {
+        autowidth: true,
+        arrows: false,
+        pagination: false
+      }).mount();
+    }
   }
+
   //modal
   const projectModal = document.querySelector('#projectsModal')
   const topicModal = document.querySelector('#topicModal')
 
-  if(document.querySelector('#topicModal'))
+  if (document.querySelector('#topicModal'))
     topicModal.addEventListener('show.bs.modal', function(event) {
       //trigger
       const btn_topic = event.relatedTarget
@@ -47,7 +46,7 @@ document.addEventListener('turbo:load', () => {
     });
 
 
-  if(document.querySelector('#projectsModal')) 
+  if (document.querySelector('#projectsModal'))
     projectModal.addEventListener('show.bs.modal', function(event) {
       //trigger
       const btn_project = event.relatedTarget
@@ -60,12 +59,10 @@ document.addEventListener('turbo:load', () => {
       const modalBodyText = projectModal.querySelector('.modal_desc')
       modalTitle.textContent = title
       modalBodyText.innerHTML = desc
-      if (projectModal.querySelector('.modal_btn')){
+      if (projectModal.querySelector('.modal_btn')) {
         const modalBtn = projectModal.querySelector('.modal_btn')
         modalBtn.setAttribute('href', ptoject)
       }
     });
-    
-});
 
-  
+});

@@ -7,12 +7,14 @@ class Project < ApplicationRecord
   after_create :create_topic
   after_create :notification_all_users
 
+  scope :finished, -> { where("finish_at < ?",DateTime.now)}
+
   def in_team?(user)
     users.include?(user)
   end
 
   def next_topic_position
-    topics.any? ? topics.last.position+1 : 0 
+    topics.any? ? topics.last.position+1 : 0
   end
 
   private
