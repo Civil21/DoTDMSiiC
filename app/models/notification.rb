@@ -7,5 +7,6 @@ class Notification < ApplicationRecord
     new_project
     join_to_project
     new_user
+    join_to_task
   ]
 end

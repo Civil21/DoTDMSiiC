@@ -1,9 +1,7 @@
-<div class="col-12 p-2 Box Box__task Box__shadow p-1 pointer" 
-    data-bs-toggle="modal" 
-    data-bs-target="#topicModal" 
-    data-bs-taskTitle="<%=task.name%>" 
-    data-bs-taskTopic="<%=topic.name%>" 
-    data-bs-taskDesc='<%= task.description %>'
+<div class="col-12 p-2 Box Box__task Box__shadow p-1 pointer"
+    data-bs-toggle="modal"
+    data-bs-target="#<%=dom_id(task)%>"
 >
   <%=task.name%>
 </div>
+<%= render "tasks/task/modal", task:task%>

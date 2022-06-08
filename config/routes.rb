@@ -8,10 +8,17 @@ Rails.application.routes.draw do
     member do
       post :join
     end
-    resources :topics, only: %i[create update delete]
-    resources :tasks, only: %i[create update delete]
+    resources :topics, only: :create
+    resources :tasks, only: :create
   end
-  # resources :tasks,
+
+  resources :tasks, only: %i[update destroy] do
+    member do
+      post :join
+    end
+  end
+  resources :topics, only: %i[update destroy]
+
   resource :my, only: :show, controller: :my do
     get :projects
   end

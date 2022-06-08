@@ -14,17 +14,25 @@ class TasksController < InheritedResources::Base
   end
 
   def update
+    @old_topic = task.topic
     task.update(task_params)
+    @topic = task.topic
     respond_to do |format|
       format.turbo_stream
     end
   end
 
-  def delete
-    task.delete
+  def destroy
+    @topic = task.topic
+    task.destroy
     respond_to do |format|
       format.turbo_stream
     end
+  end
+
+  def join
+    task.users << current_user
+    redirect_to project
   end
 
   private
@@ -38,7 +46,7 @@ class TasksController < InheritedResources::Base
   end
 
   def project
-    @project ||= Project.find(params[:project_id])
+    @project ||= (Project.find(params[:project_id]) if params[:project_id])|| task.project
   end
 
   def user_in_team

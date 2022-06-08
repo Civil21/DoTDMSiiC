@@ -20,3 +20,10 @@ end
     Project.all.sample.users << user
   end
 end
+
+User.create!(
+  email: "user@example.com",
+  password: 'password',
+  password_confirmation: 'password',
+  position: rand(0..5)
+)

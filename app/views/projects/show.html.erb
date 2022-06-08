@@ -11,10 +11,9 @@
   </div>
 </div>
 <div class="row Box Box__hs mt-4 mx-0 p-5" role="group">
-    <%= render @topics %>
+  <%= render @topics %>
 </div>
 <%#= render "topics/form", topic: Topic.new %>
-
 <!-- Modal -->
 <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -29,44 +28,3 @@
     </div>
   </div>
 </div>
-
-  <!-- Modal for topic-->
-  <div class="modal md-effect-11" id="topicModal" tabindex="-1" aria-hidden="true" >
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-      <div class="modal_content modal_content__padding">
-        <div class="modal_header mb-0">
-          <div>
-            <h5 class="my-0 modal_title">Task name</h5>
-            <p class="mt-1">у списку: <span class="modal_topic">Topic name</span></p>
-          </div>
-          <button type="button" class="btn-close mb-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal_body">
-          <div class="row">
-            <div class="col-8">
-              <div class="mb-3">
-                <p class="modal_content__title mb-1" >Учасники</p>
-                <div class="modal_content__persons ">
-                  <%= render partial: "user", collection: @users  %>
-                </div>
-              </div>
-              <div class="mb-3">
-                <h5 class="modal_content__title mb-2">Опис</h5>
-                <p class="modal_desc">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptatibus, ex voluptatum labore architecto in error provident eos ut corrupti illum culpa, odit ducimus, eaque aliquid pariatur qui officiis harum!
-                </p>
-              </div> 
-            </div>
-            <div class="col-4">
-              <h5 class="modal_content__title">Дії</h5>
-              <a type="button" class="btn btn__mark"><span>Приєднатися</span></a>
-              <a type="button" class="btn btn__mark">Перемістити до: <span>В процесі</span></a>
-              <a type="button" class="btn btn__mark">Перемістити до: <span>На перевірці</span></a>
-              <a type="button" class="btn btn__mark">Перемістити до: <span>Виконано</span></a>
-              <a type="button" class="btn btn__mark"><span>Видалити</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
