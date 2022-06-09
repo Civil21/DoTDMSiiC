@@ -1,15 +1,9 @@
-<div class="Box Box__notification row <%='Box__yellow' if ["User"].include?(notification.object_type)%> <%='Box__red' if ["Project"].include?(notification.object_type)%>">
+<div class="Box Box__notification row <%= 'Box__yellow' if notification.notification_type == "new_user" %> <%='Box__red' if notification.notification_type == "new_project" %>">
   <div class="col-2">
     <%= notification.created_at.strftime("%e.%m.%Y")%>
   </div>
   <div class="col-2 text-uppercase">
-    <% if notification.notification_type == "new_project"%>
-      <%= notification.object_type == "Project" ? "Добавлено проект" : "Створено проект"%>
-    <% elsif notification.notification_type == "new_user"%>
-      <%= notification.object_type == "User" ? "Новий працівник" : "Новий працівник"%>
-    <%else%>
-      <%= notification.object_type%>
-    <%end%>
+      <%= notification.notification_type == "new_project" ? "Добавлено проект" : notification.notification_type == "new_user" ? "Новий працівник" : notification.notification_type == "join_to_project" ? "Приєднався до проекту" : "Взяв до виконання"%>
   </div>
   <% if ["Project", "User"].include?(notification.object_type) %>
     <div class="col-4">
@@ -21,7 +15,7 @@
     </div>
   <%end%>
   <% if ["User"].include?(notification.sub_object_type) %>
-    <div class="col-4">
+    <div class="col-3 ms-5 ps-5 text-end fw-bold color__gray text-uppercase">
       <%= link_to notification.sub_object.name, notification.sub_object %>
     </div>
   <%else%>
