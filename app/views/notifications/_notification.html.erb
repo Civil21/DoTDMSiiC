@@ -2,15 +2,21 @@
   <div class="col-2">
     <%= notification.created_at.strftime("%e.%m.%Y")%>
   </div>
-  <div class="col-2">
-    <%= notification.notification_type%>
+  <div class="col-2 text-uppercase">
+    <% if notification.notification_type == "new_project"%>
+      <%= notification.object_type == "Project" ? "Добавлено проект" : "Створено проект"%>
+    <% elsif notification.notification_type == "new_user"%>
+      <%= notification.object_type == "User" ? "Новий працівник" : "Новий працівник"%>
+    <%else%>
+      <%= notification.object_type%>
+    <%end%>
   </div>
   <% if ["Project", "User"].include?(notification.object_type) %>
     <div class="col-4">
-      <%= link_to notification.object.name, notification.object%>
+      <%= link_to notification.object.name, notification.object, class:"fw-bold text-uppercase"%>
     </div>
   <%else%>
-    <div class="col-4">
+    <div class="col-4 fw-bold text-uppercase">
       <%= notification.object.name %>
     </div>
   <%end%>
@@ -19,5 +25,10 @@
       <%= link_to notification.sub_object.name, notification.sub_object %>
     </div>
   <%else%>
+  <%end%>
+  <% if notification.notification_type == "new_user"%>
+    <div class="col-3 ms-5 ps-5 text-end fw-bold color__gray text-uppercase">
+      <%= notification.object.position%>
+    </div>
   <%end%>
 </div>

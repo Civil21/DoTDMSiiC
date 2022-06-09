@@ -42,6 +42,9 @@
     &__small{
         height: 200px;
         padding: 15px;
+        &_form{
+            height: auto;
+        }
     }
 
     &__title{
