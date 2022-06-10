@@ -9,7 +9,7 @@
     </button>
     <div>
       <%= link_to root_path, class:"navbar-brand"  do %>
-      <%= image_tag "/logo.svg",  height: 60 %>
+        <%= image_tag "/logo.svg",  height: 60 %>
       <%end%>
     </div>
     <div class="collapse navbar-collapse"
@@ -18,7 +18,7 @@
         class="navbar-nav ms-auto align-items-center mb-lg-0">
         <li class="nav-item">
           <%= link_to projects_my_path ,class:"nav-link  me-3"  do %>
-          Мої проекти
+            Мої проекти
           <%end%>
         </li>
         <li class="nav-item dropdown">
@@ -26,15 +26,15 @@
           <div class="navcard dropdown-menu p-0 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
             <div class="info px-4 pt-4">
               <h5 class="colored"><%= current_user.name%></h5>
-                <p>Вік: <span>24</span></p>
-                <p>Працює від: <span><%= current_user.created_at.strftime("%d.%m.%Y")%></span></p>
-                <p>Посада: <span><%= current_user.position%></span></p>
-                <p>Виконані проекти: <span><%= current_user.projects.finished.count%></span></p>
-                <p class="mb-4">Всього проектів: <span><%= current_user.projects.count%></span></p>
+              <p><%== "Вік: <b>#{(Date.current.year - current_user.birthday_at.year)}</b> років" if current_user.birthday_at%></p>
+              <p>Працює від: <span><%= current_user.created_at.strftime("%d.%m.%Y")%></span></p>
+              <p>Посада: <span><%= current_user.position%></span></p>
+              <p>Виконані проекти: <span><%= current_user.projects.finished.count%></span></p>
+              <p class="mb-4">Всього проектів: <span><%= current_user.projects.count%></span></p>
             </div>
             <div class="exit mt-auto p-0 w-100 text-center">
               <%= link_to destroy_user_session_path, class:"colored nav-link", method: :delete do%>
-              Вихід
+                Вихід
               <%end%>
             </div>
           </div>
@@ -48,17 +48,17 @@
     <ul class="navbar-nav flex-sm-row">
       <li class="nav-item nav-item__margin ">
         <%= link_to root_path, class:"nav-link"  do %>
-        Головна
+          Головна
         <%end%>
       </li>
       <li class="nav-item nav-item__margin ">
         <%= link_to projects_path, class:"nav-link"  do %>
-        Проекти
+          Проекти
         <%end%>
       </li>
       <li class="nav-item nav-item__margin ">
         <%= link_to users_path, class:"nav-link"  do %>
-        Персонал
+          Персонал
         <%end%>
       </li>
     </ul>

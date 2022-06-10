@@ -6,7 +6,7 @@
         <h5 class="text-center ms-3 my-auto text-break "><%= user.name %></h5>
       <%end%>
       <div class="info_list">
-        <p>Вік: <span>24</span></p>
+        <p><%== "Вік: <b>#{(Date.current.year - user.birthday_at.year)}</b> років" if user.birthday_at%></p>
         <p>Працює від: <span><%= user.created_at.strftime("%d.%m.%Y")%></span></p>
         <p>Посада: <span><%= user.position%></span></p>
         <p>Виконані проекти: <span><%= user.projects.finished.count%></span></p>
