@@ -7,7 +7,7 @@
     <%= render partial: "user", collection: @users %>
   </div>
   <div class="Box__infotxt Box__colored">
-    <%=@project.budget%>$
+    <%="#{@project.budget} #{@project.currency}"%>
   </div>
 </div>
 <div class="row Box Box__hs mt-4 mx-0 p-5" role="group">

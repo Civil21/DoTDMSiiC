@@ -6,9 +6,21 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
     description: Faker::Lorem.paragraph,
     start_at: DateTime.now - rand(1..5).days,
     finish_at: DateTime.now + rand(1..5).days,
-    budget: rand(1..20) * 100
+    budget: rand(1..20) * 100,
+    currency: rand(0..3)
   )
 end
+
+user = User.create!(
+  email: "user@example.com",
+  password: 'password',
+  password_confirmation: 'password',
+  position: rand(0..5)
+)
+rand(1..3).times do
+  Project.all.sample.users << user
+end
+
 7.times do
   user = User.create!(
     email: Faker::Internet.email,
@@ -16,14 +28,7 @@ end
     password_confirmation: 'password',
     position: rand(0..5)
   )
-  rand(1..3).times do
+  rand(1...3).times do
     Project.all.sample.users << user
   end
 end
-
-User.create!(
-  email: "user@example.com",
-  password: 'password',
-  password_confirmation: 'password',
-  position: rand(0..5)
-)
