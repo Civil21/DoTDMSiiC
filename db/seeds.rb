@@ -7,7 +7,7 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
     start_at: DateTime.now - rand(1..5).days,
     finish_at: DateTime.now + rand(1..5).days,
     budget: rand(1..20) * 100,
-    currency: rand(0..3)
+    currency: rand(0..2)
   )
 end
 
@@ -17,10 +17,6 @@ user = User.create!(
   password_confirmation: 'password',
   position: rand(0..5)
 )
-rand(0..2).times do
-  Project.all.sample.users << user
-end
-
 7.times do
   user = User.create!(
     email: Faker::Internet.email,
@@ -28,6 +24,10 @@ end
     password_confirmation: 'password',
     position: rand(0..5)
   )
+
+end
+
+User.find_each do |user|
   rand(0..2).times do
     Project.all.sample.users << user
   end
