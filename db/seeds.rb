@@ -17,7 +17,7 @@ user = User.create!(
   password_confirmation: 'password',
   position: rand(0..5)
 )
-rand(1..3).times do
+rand(0..2).times do
   Project.all.sample.users << user
 end
 
@@ -28,7 +28,7 @@ end
     password_confirmation: 'password',
     position: rand(0..5)
   )
-  rand(1...3).times do
+  rand(0..2).times do
     Project.all.sample.users << user
   end
 end

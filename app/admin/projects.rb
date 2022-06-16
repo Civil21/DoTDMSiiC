@@ -1,5 +1,5 @@
 ActiveAdmin.register Project do
-  permit_params :name, :description, :start_at, :finish_at, :budget
+  permit_params :name, :description, :start_at, :finish_at, :budget, :currency
 
   form do |f|
     f.inputs 'Article' do
@@ -8,6 +8,7 @@ ActiveAdmin.register Project do
       f.input :start_at, as: :datepicker
       f.input :finish_at, as: :datepicker
       f.input :budget, as: :number
+      f.input :currency, include_blank: false
     end
     f.actions
   end
