@@ -8,9 +8,9 @@ class Project < ApplicationRecord
   after_create :notification_all_users
 
   enum currency: {
-    usd: 0,
-    uah: 1,
-    eur: 2,
+    "$": 0,
+    "₴": 1,
+    "€": 2,
   }
 
   scope :finished, -> { where("finish_at < ?",DateTime.now)}
